@@ -13,7 +13,7 @@ import Footer from "@/components/layout/Footer"
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-start">
+    <main className="">
       <section id="find">
         <FindAnyone />
       </section>

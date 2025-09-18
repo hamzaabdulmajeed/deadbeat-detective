@@ -1,16 +1,15 @@
 "use client"
-
 import React from "react"
 
 export default function FindAnyone() {
     return (
-        <section className="text-center mt-16 px-6">
-            {/* Heading */}
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-                Find <span className="text-blue-600">Anyone</span> Who Owes You{" "}
-
-                {/* Mobile: all in one line */}
-                <span className="md:hidden">
+        <div className="w-full mt-8 flex items-center justify-center  bg-gray-50">
+            <div className="w-full max-w-[70vw] text-center space-y-6">
+                {/* Heading */}
+                <div className="space-y-2">
+                    <h1 className="font-bold text-gray-900 leading-tight" style={{fontSize: 'clamp(2rem, 5vw, 6rem)'}}>
+                        Find Anyone Who Owes You{" "}
+                        <span className="md:hidden">
                     Money <span className="text-blue-600">Instantly.</span>
                 </span>
 
@@ -19,14 +18,25 @@ export default function FindAnyone() {
                     <br />
                     Money in Less Than <span className="text-blue-600">60s.</span>
                 </span>
-            </h1>
+                    </h1>
+                    
+                    {/* Desktop additional text */}
+                    {/* <div className="hidden md:block">
+                        <p className="text-gray-700 font-medium" style={{fontSize: 'clamp(1rem, 2.5vw, 2rem)'}}>
+                            in less than 60 seconds.
+                        </p>
+                    </div> */}
+                </div>
 
-            {/* Description */}
-            <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-base md:text-lg">
-                Instantly search public records, liens, and legal disputes with a click.{" "}
-                <span className="font-semibold">Deadbeat Detective</span> brings transparency
-                to your <span className="font-medium">fingertips</span> so you’re never left in the dark.
-            </p>
-        </section>
+                {/* Description */}
+                <div className="mx-auto">
+                    <p className="text-gray-600 leading-relaxed" style={{fontSize: 'clamp(0.9rem, 2vw, 1.5rem)'}}>
+                        Instantly search public records, liens, and legal disputes with a click.{" "}
+                        <span className="font-semibold text-gray-800">Deadbeat Detective</span> brings transparency
+                        to your fingertips so you're never left in the dark.
+                    </p>
+                </div>
+            </div>
+        </div>
     )
 }

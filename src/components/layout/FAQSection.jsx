@@ -47,20 +47,20 @@ function FAQItem({ question, answer, isOpen, onToggle }) {
     <div className="border border-gray-200 rounded-lg bg-white">
       <button
         onClick={onToggle}
-        className="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50"
+        className="w-full px-4 md:px-6 py-4 md:py-5 text-left flex justify-between items-center hover:bg-gray-50"
       >
-        <span className="font-medium text-gray-900 pr-4">{question}</span>
+        <span className="font-medium text-gray-900 pr-4 text-sm md:text-base">{question}</span>
         <div className="flex-shrink-0">
           {isOpen ? (
-            <Minus className="w-5 h-5 text-gray-600" />
+            <Minus className="w-4 h-4 md:w-5 md:h-5 text-gray-600" />
           ) : (
-            <Plus className="w-5 h-5 text-gray-600" />
+            <Plus className="w-4 h-4 md:w-5 md:h-5 text-gray-600" />
           )}
         </div>
       </button>
       {isOpen && (
-        <div className="px-6 pb-5">
-          <p className="text-gray-600 leading-relaxed">{answer}</p>
+        <div className="px-4 md:px-6 pb-4 md:pb-5">
+          <p className="text-gray-600 leading-relaxed text-sm md:text-base">{answer}</p>
         </div>
       )}
     </div>
@@ -79,53 +79,55 @@ export default function FAQSection() {
 
   // Split FAQs into two columns
   const leftColumnFaqs = faqs.slice(0, Math.ceil(faqs.length / 2));
-  const rightColumnFaqs = faqs.slice(0, Math.ceil(faqs.length / 2));
+  const rightColumnFaqs = faqs.slice(Math.ceil(faqs.length / 2));
 
   return (
-    <section className="w-full max-w-6xl mx-auto px-6 py-16 bg-gray-50">
-      {/* Header */}
-      <div className="text-center mb-12">
-        <div className="inline-block px-4 py-2 border border-blue-300 text-blue-700 rounded-full text-sm font-medium mb-4">
-          FAQ's
-        </div>
-        <h2 className="text-4xl font-bold text-gray-900 mb-4">
-          Have Questions?
-        </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
-          Lorem ipsum dolor sit amet consectetur. Orci malesuada mi et mi pellentesque facilisis.
-          Nisl eu blandit nunc parturient adipiscing commodo.
-        </p>
-      </div>
-
-      {/* Two Column FAQ Grid */}
-      <div className="grid md:grid-cols-2 gap-6">
-        {/* Left Column */}
-        <div className="space-y-4">
-          {leftColumnFaqs.map((faq, index) => (
-            <FAQItem
-              key={index}
-              question={faq.question}
-              answer={faq.answer}
-              isOpen={openItems[index]}
-              onToggle={() => toggleItem(index)}
-            />
-          ))}
+    <section className="bg-gray-50 py-16">
+      <div className="w-[70%] mx-auto px-4">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <div className="inline-block px-4 py-2 border border-blue-300 text-blue-700 rounded-full text-sm font-medium mb-4">
+            FAQ's
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Have Questions?
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+            Lorem ipsum dolor sit amet consectetur. Orci malesuada mi et mi pellentesque facilisis.
+            Nisl eu blandit nunc parturient adipiscing commodo.
+          </p>
         </div>
 
-        {/* Right Column */}
-        <div className="space-y-4">
-          {rightColumnFaqs.map((faq, index) => {
-            const actualIndex = index + leftColumnFaqs.length;
-            return (
+        {/* Two Column FAQ Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          {/* Left Column */}
+          <div className="space-y-3 md:space-y-4">
+            {leftColumnFaqs.map((faq, index) => (
               <FAQItem
-                key={actualIndex}
+                key={index}
                 question={faq.question}
                 answer={faq.answer}
-                isOpen={openItems[actualIndex]}
-                onToggle={() => toggleItem(actualIndex)}
+                isOpen={openItems[index]}
+                onToggle={() => toggleItem(index)}
               />
-            );
-          })}
+            ))}
+          </div>
+
+          {/* Right Column */}
+          <div className="space-y-3 md:space-y-4">
+            {rightColumnFaqs.map((faq, index) => {
+              const actualIndex = index + leftColumnFaqs.length;
+              return (
+                <FAQItem
+                  key={actualIndex}
+                  question={faq.question}
+                  answer={faq.answer}
+                  isOpen={openItems[actualIndex]}
+                  onToggle={() => toggleItem(actualIndex)}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

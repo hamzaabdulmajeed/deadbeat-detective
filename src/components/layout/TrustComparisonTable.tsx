@@ -53,8 +53,8 @@ export default function TrustComparisonTable() {
         </p>
       </div>
 
-      {/* Comparison Table */}
-      <div className="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm">
+      {/* Desktop Comparison Table */}
+      <div className="hidden md:block bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm">
         <Table>
           <TableHeader>
             <TableRow className="border-b border-gray-200">
@@ -90,6 +90,30 @@ export default function TrustComparisonTable() {
             ))}
           </TableBody>
         </Table>
+      </div>
+
+      {/* Mobile Stacked Layout */}
+      <div className="md:hidden bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm">
+        <div className="p-4 space-y-6">
+          {comparisonData.map((row, index) => (
+            <div key={index} className="space-y-2">
+              <h3 className="font-medium text-gray-900 text-sm">{row.feature}</h3>
+              <div className="space-y-1">
+                <div className="flex items-center space-x-2 text-sm">
+                  <Check className="w-3 h-3 text-green-600 flex-shrink-0" />
+                  <span className="text-gray-700">{row.deadbeatDetective}</span>
+                </div>
+                <div className="flex items-center space-x-2 text-sm">
+                  <div className="w-3 h-3 flex-shrink-0"></div>
+                  <span className="text-gray-500">{row.otherServices}</span>
+                </div>
+              </div>
+              {index < comparisonData.length - 1 && (
+                <div className="border-b border-gray-100 pt-4"></div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

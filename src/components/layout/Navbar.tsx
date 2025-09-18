@@ -25,7 +25,7 @@ export default function Navbar() {
 
     return (
         <nav className="bg-white  mt-5 mx-10 ">
-            <div className="bg-white max-w-7xl  flex items-center justify-between  px-6 py-4 rounded-lg shadow-sm">
+            <div className="bg-white flex items-center justify-between  px-6 py-4 rounded-lg shadow-sm">
 
                 {/* Logo */}
                 <Link href="/" className="flex items-center space-x-3">
