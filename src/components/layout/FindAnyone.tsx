@@ -33,7 +33,7 @@ export default function FindAnyone() {
                     <p className="text-gray-600 leading-relaxed" style={{fontSize: 'clamp(0.9rem, 2vw, 1.5rem)'}}>
                         Instantly search public records, liens, and legal disputes with a click.{" "}
                         <span className="font-semibold text-gray-800">Deadbeat Detective</span> brings transparency
-                        to your fingertips so you're never left in the dark.
+                        to your fingertips so you are never left in the dark.
                     </p>
                 </div>
             </div>
