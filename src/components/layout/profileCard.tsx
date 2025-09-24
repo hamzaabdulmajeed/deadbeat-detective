@@ -17,7 +17,7 @@ export default function DataReport() {
             Data Report
           </Button>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            See What You'll Get
+            See What You will Get
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
