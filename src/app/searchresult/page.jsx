@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { ArrowLeft, User, Mail, Phone, MapPin, Eye, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -119,7 +119,8 @@ const initialPeopleData = [
   }
 ]
 
-export default function searchResultsPage() {
+// CHANGED: Separated the component that uses useSearchParams
+function SearchResultsContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [searchResults, setSearchResults] = useState([])
@@ -321,6 +322,27 @@ export default function searchResultsPage() {
         </div>
       )}
     </div>
+  )
+}
+
+// CHANGED: Loading fallback component
+function SearchResultsLoading() {
+  return (
+    <div className="w-full max-w-6xl mx-auto p-4">
+      <div className="text-center py-12">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto"></div>
+        <p className="mt-4 text-gray-600">Loading search results...</p>
+      </div>
+    </div>
+  )
+}
+
+// CHANGED: Main component wrapped with Suspense
+export default function SearchResultsPage() {
+  return (
+    <Suspense fallback={<SearchResultsLoading />}>
+      <SearchResultsContent />
+    </Suspense>
   )
 }
 
